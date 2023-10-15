@@ -10,11 +10,11 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 app.use(routes);
-app.use(express.static(path.join(__dirname, '../../Frontend/build')));
+// app.use(express.static(path.join(__dirname, '../../Frontend/build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../Frontend/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../../Frontend/build/index.html'));
+// });
 
 mongoose
   .connect(process.env.MONGO_URL, {
