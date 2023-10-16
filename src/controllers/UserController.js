@@ -6,7 +6,7 @@ const { default: mongoose } = require("mongoose");
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find().sort({ status: 1 });
-    return res.send({ allUsers: users, userInfo: req.user });
+    return res.send(users);
   } catch (_) {
     return res.status(400).send({ message: "Something went wrong" });
   }
@@ -72,7 +72,7 @@ exports.delete = async (req, res) => {
       return res
         .status(404)
         .send({ message: "Users is not found" });
-    return res.send({ message: "Users successfully deleted", _id: req.user._id });
+    return res.send({ message: "Users successfully deleted" });
   } catch (_) {
     return res.status(400).send({ message: "Something is wrong" });
   }
@@ -96,7 +96,7 @@ exports.update = async (req, res) => {
       );
     }
 
-    return res.send({ message: "Users successfully updated", _id: req.user._id });
+    return res.send({ message: "Users successfully updated"});
   } catch (_) {
     return res.status(400).send({ message: "Something is wrong" });
   }
