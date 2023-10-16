@@ -6,7 +6,7 @@ const { default: mongoose } = require("mongoose");
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find().sort({ status: 1 });
-    return res.send(users);
+    return res.send({users});
   } catch (_) {
     return res.status(400).send({ message: "Something went wrong" });
   }
