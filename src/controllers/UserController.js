@@ -53,7 +53,7 @@ exports.registration = async (req, res) => {
       { email, _id: newUser._id, status },
       "1h"
     );
-    return res.send({ accessToken, name: newUser.name });
+    return res.send({ accessToken });
   } catch (e) {
     if (e.code === 11000) {
       return res.status(400).send({ message: "Email already exists" });
