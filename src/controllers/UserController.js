@@ -6,7 +6,7 @@ const { default: mongoose } = require("mongoose");
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find().sort({ status: 1 });
-    return res.send(users);
+    return res.send({ allUsers: users, userInfo: req.user });
   } catch (_) {
     return res.status(400).send({ message: "Something went wrong" });
   }
@@ -46,13 +46,10 @@ exports.login = async (req, res) => {
 exports.registration = async (req, res) => {
   try {
     const password = bcrypt.hashSync(req.body.password, +process.env.SALT);
-    const { email, _id, status } = req.body;
+    const { email, name } = req.body;
 
     const newUser = await User.create({ ...req.body, password });
-    const accessToken = generateToken(
-      { email, _id: newUser._id, status },
-      "1h"
-    );
+    const accessToken = generateToken({ email, _id: newUser._id, name }, "1h");
     return res.send({ accessToken });
   } catch (e) {
     if (e.code === 11000) {
@@ -72,8 +69,10 @@ exports.delete = async (req, res) => {
       _id: { $in: convertedIds },
     });
     if (!deletedCount)
-      return res.status(404).send({ message: "Users is not found" });
-    return res.send({ message: "Users successfully deleted" });
+      return res
+        .status(404)
+        .send({ message: "Users is not found" });
+    return res.send({ message: "Users successfully deleted", _id: req.user._id });
   } catch (_) {
     return res.status(400).send({ message: "Something is wrong" });
   }
@@ -97,7 +96,7 @@ exports.update = async (req, res) => {
       );
     }
 
-    return res.send({ message: "Users successfully updated" });
+    return res.send({ message: "Users successfully updated", _id: req.user._id });
   } catch (_) {
     return res.status(400).send({ message: "Something is wrong" });
   }
