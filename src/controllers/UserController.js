@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
-const { User } = require("../models/User");
-const { generateToken } = require("../utils/security");
+const { User } = require("@models/User");
+const { generateToken } = require("@utils/security");
 const { default: mongoose } = require("mongoose");
 
 exports.getAllUsers = async (req, res) => {

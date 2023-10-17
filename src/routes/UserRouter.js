@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const UserController = require("../controllers/UserController");
-const registrationValid = require("../middlewares/registrationValid");
-const verifyToken = require("../middlewares/verifyToken");
+const UserController = require("@controllers/UserController");
+const registrationValid = require("@middlewares/registrationValid");
+const verifyToken = require("@middlewares/verifyToken");
 
 router.post("/registration", [registrationValid], UserController.registration);
 router.post("/login", UserController.login);

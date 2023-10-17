@@ -8,6 +8,12 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "_moduleAliases": {
+    "@models": "./src/models",
+    "@utils": "./src/utils",
+    "@controllers": "./src/controllers",
+    "@middlewares": "./src/middlewares"
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bson": "^6.1.0",
@@ -15,6 +21,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
     "mongodb": "^6.1.0",
     "mongoose": "^6.10.1",
     "nodemon": "^3.0.1",
