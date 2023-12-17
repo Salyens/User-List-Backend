@@ -1,45 +1,18 @@
-# User Collections Project - Backend
+# User List Management System - Backend
 
-Developed during an internship at "Intransition", this backend focuses on reliability and functionality, integrating various technologies and practices for a comprehensive user experience.
+## Introduction
+This is the backend for the User List Management System, built to support a comprehensive interface for user management, including authentication, registration, and user status updates. It is designed to handle complex operations like user blocking, unblocking, deletion, and more.
 
-## Backend Features
+## Features
+- **User Authentication**: Secure user login process with JWT token generation and bcrypt for password hashing.
+- **Registration**: New user registration with validation checks for name, email, and password.
+- **User List Management**: Fetch all users with sorting, update user status (block/unblock), and delete users.
+- **Error Handling**: Consistent error handling across different endpoints to ensure a smooth user experience.
 
-### Environment Configuration
-- Uses `dotenv` for managing environment variables.
-
-### Server Setup
-- Express.js web framework.
-- Mongoose for MongoDB object modeling.
-- CORS for cross-origin resource sharing.
-
-## Routing and Middleware
-
-### Express Routing
-- RESTful API routes for managing users and collections.
-- Multer middleware for file uploads.
-
-### Data Models
-- Mongoose schemas for user items, supporting additional fields and full-text search.
-
-### Validation
-- Data request validation using express-validator.
-
-## Key Technologies
-
-- **MongoDB and Mongoose:** Efficient data storage and retrieval using Mongoose ODM for MongoDB database management.
-- **AWS S3 for Files:** Secure file uploads and retrieval, including integration with AWS S3 for storage and generating signed URLs.
-- **JWT Authentication:** Secure user sessions and access management using JWT.
-- **Dynamic Express Routing:** Reliable routing and request handling for various API operations.
-- **Custom Validation Logic:** Ensuring data integrity and security through customized checks and validations.
-- **Full-Text Search:** Enhancing item search functionality with MongoDB's full-text search capabilities.
-- **MongoDB Transactions:** Managing complex data operations with transactions, ensuring reliability and data integrity during updates and deletions.
-
-## Database Management
-
-- **MongoDB with Mongoose:** Reliable database operations using Mongoose for schema validation and query optimization.
-
-## Backend Architecture
-
-- **Modular Design:** Structured for scalability, maintenance, and ease of navigation.
-- **RESTful API Design:** Adheres to REST principles for intuitive and efficient API routes.
+## Technologies
+- Node.js with Express
+- MongoDB with Mongoose for database management
+- Bcrypt for password encryption
+- JSON Web Tokens (JWT) for secure authentication
+- Cors for handling cross-origin requests
 
