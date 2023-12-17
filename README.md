@@ -1,7 +1,7 @@
 # User List Management System - Backend
 
 ## Introduction
-This is the backend for the User List Management System, built to support a comprehensive interface for user management, including authentication, registration, and user status updates. It is designed to handle complex operations like user blocking, unblocking, deletion, and more.
+This application was developed during an internship at "Intransition". It represents the backend for the User List Management System, built to support a comprehensive interface for user management, including authentication, registration, and user status updates. It is designed to handle complex operations like user blocking, unblocking, deletion, and more.
 
 ## Features
 - **User Authentication**: Secure user login process with JWT token generation and bcrypt for password hashing.
